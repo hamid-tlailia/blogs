@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import "../js/mdb.es.min.js.map";
 import axios from "axios";
 const Header = () => {
   const [id, setID] = useState("");
