@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import insect from "../pages/images/insect.png";
 import "../App.css";
 import { format } from "timeago.js";
 import InputEmoji from "react-input-emoji";
