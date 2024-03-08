@@ -20,7 +20,7 @@ useEffect(() => {
   const handleRegister = async (e) => {
     e.preventDefault()
   try{
-    await axios.post('http://localhost:3002/register' , register)
+    await axios.post('blogs-api-omega.vercel.app/register' , register)
     .then(res => {
       setResponse(res.data.message)
       e.target.reset()
