@@ -34,7 +34,7 @@ const Messages = () => {
   useEffect(() => {
     const get_counter = async () => {
       try {
-        const res = await fetch(`http://localhost:3002/get-messages`);
+        const res = await fetch(`blogs-api-omega.vercel.app/get-messages`);
         const data = await res.json();
         setCounter(data.counter);
       } catch (error) {
@@ -51,7 +51,7 @@ const Messages = () => {
       const userID = getName.id;
       setUser(false);
       const getUsers = async () => {
-        await fetch(`http://localhost:3002/users/${userID}`)
+        await fetch(`blogs-api-omega.vercel.app/users/${userID}`)
           .then((res) => res.json())
           .then((data) => {
             setLoader(false);
