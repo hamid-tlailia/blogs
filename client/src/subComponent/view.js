@@ -27,7 +27,7 @@ const View = () => {
       articleComment: inputarea,
     };
     await axios
-      .post("http://localhost:3002/saveComments", comment)
+      .post("blogs-api-omega.vercel.app/saveComments", comment)
       .then((res) => {
         setCommented(true);
         setMessage(res.data.message);
@@ -41,7 +41,7 @@ const View = () => {
     setLoader(true);
     if (created) {
       setCreated(false);
-      fetch("http://localhost:3002/articles")
+      fetch("blogs-api-omega.vercel.app/articles")
         .then((res) => res.json())
         .then((data) => {
           setLoader(false);
@@ -55,7 +55,7 @@ const View = () => {
   useEffect(() => {
     if (commented) {
       setCommented(false);
-      fetch("http://localhost:3002/getComments")
+      fetch("blogs-api-omega.vercel.app/getComments")
         .then((res) => res.json())
         .then((data) => setIsComment(data));
     }
