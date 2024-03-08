@@ -29,7 +29,7 @@ const ChatBox = () => {
   useEffect(() => {
     setLoader(true);
     const getMessages = async () => {
-      const res = await fetch(`http://localhost:3002/messages/${userID.id}`);
+      const res = await fetch(`blogs-api-omega.vercel.app/messages/${userID.id}`);
       const data = await res.json();
       setLoader(false);
       setData(data.infos);
@@ -76,7 +76,7 @@ const ChatBox = () => {
 
       try {
         await axios
-          .post("http://localhost:3002/save-message", messageInfos)
+          .post("blogs-api-omega.vercel.app/save-message", messageInfos)
           .then((res) => res.json)
           .then((data) => {
             setIsSend(true);
@@ -104,7 +104,7 @@ const ChatBox = () => {
 
   useEffect(() => {
     try {
-      fetch(`http://localhost:3002/get-messages`)
+      fetch(`blogs-api-omega.vercel.app/get-messages`)
         .then((res) => res.json())
         .then((data) => {
           setCounter(data.counter);
@@ -129,7 +129,7 @@ const ChatBox = () => {
       const neew = JSON.parse(userInfos);
       const ID = neew.id;
       const getImage = async () => {
-        await fetch(`http://localhost:3002/get-image/${ID}`)
+        await fetch(`blogs-api-omega.vercel.app/get-image/${ID}`)
           .then((res) => res.json())
           .then((data) => {
             setSaveImage(data.data);
@@ -180,7 +180,7 @@ const ChatBox = () => {
     const deleted_message = e.target.parentElement.parentElement.children[1];
     const message_id = e.target.id;
     const res = await axios.post(
-      `http://localhost:3002/delete-message/${message_id}`
+      `blogs-api-omega.vercel.app/delete-message/${message_id}`
     );
 
     if (res) {
