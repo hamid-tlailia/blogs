@@ -26,7 +26,7 @@ const navigate = useNavigate()
   </div>`
     
 try {
-await axios.post("http://localhost:3002/login" , login)
+await axios.post("blogs-api-omega.vercel.app/login" , login)
 .then(res => {
   setResponse(res.data.message)
   if(res.data.message === 'redirect'){
