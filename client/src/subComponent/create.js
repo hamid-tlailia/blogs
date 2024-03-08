@@ -19,7 +19,7 @@ useEffect(() => {
 
     e.preventDefault()
 
- await axios.post('http://localhost:3002' , article).then(res => setMessage(res.data.message))
+ await axios.post('blogs-api-omega.vercel.app' , article).then(res => setMessage(res.data.message))
     e.target.reset()
   }
 
