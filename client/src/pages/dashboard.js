@@ -4,7 +4,7 @@ import "../App.css";
 import axios from "axios";
 import { franc } from "franc";
 import { io } from "socket.io-client";
-const socket = io.connect("http://localhost:3002");
+const socket = io.connect("blogs-api-omega.vercel.app");
 // import InputEmoji from 'react-input-emoji'
 const Dashboard = () => {
   const [articles, setArticles] = useState([]);
@@ -71,7 +71,7 @@ const Dashboard = () => {
     navigate("/admin/login");
 
     await axios
-      .post(`http://localhost:3002/update-status/${id}`)
+      .post(`blogs-api-omega.vercel.app/update-status/${id}`)
       .then((data) => console.log(data));
   };
 
@@ -95,7 +95,7 @@ const Dashboard = () => {
       id: e.target.id,
     };
     console.log(articlesID);
-    await axios.post("http://localhost:3002/delete", articlesID).then((res) => {
+    await axios.post("blogs-api-omega.vercel.app/delete", articlesID).then((res) => {
       setDeleted(true);
       setAnswer(res.data.message);
       console.log(res.data.message);
@@ -122,7 +122,7 @@ const Dashboard = () => {
     };
 
     theme.classList.remove("active");
-    await axios.post("http://localhost:3002/update", updated).then((res) => {
+    await axios.post("blogs-api-omega.vercel.app/update", updated).then((res) => {
       setAnswer(res.data.message);
       e.target.reset();
     });
@@ -146,7 +146,7 @@ const Dashboard = () => {
     console.log(" user id : " + ID);
     try {
       await axios
-        .post(`http://localhost:3002/upload/${ID}`, formData)
+        .post(`blogs-api-omega.vercel.app/upload/${ID}`, formData)
         .then((res) => res.json())
         .then((data) => {
           setUploaded(true);
@@ -179,7 +179,7 @@ const Dashboard = () => {
       const neew = JSON.parse(userInfos);
       const ID = neew.id;
       const getImage = async () => {
-        await fetch(`http://localhost:3002/get-image/${ID}`)
+        await fetch(`blogs-api-omega.vercel.app/get-image/${ID}`)
           .then((res) => res.json())
           .then((data) => {
             setUploaded(false);
